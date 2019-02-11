@@ -1,0 +1,50 @@
+1、百度一下，你就知道   https://www.baidu.com/?tn=94112622_hao_pg
+2、logis的OA访问链接    http://oa.logis.cn:8082/login.php
+3、长风网测试网址       http://slbv2.cfnet.org.cn/
+4、长风网正式网址       http://cfnet.org.cn/
+5、本地域名访问网址     http://localhost/sch.cfnet.org.cn/public/index.php/abccom/Abc/user
+6、测试服访问网址       http://base.cfnet.org.cn/index.php/
+7、有道翻译-在线        http://fanyi.youdao.com/
+8、PHP学习资源网址      http://www.jsdaima.com/
+9、TP5完全开发手册      https://www.kancloud.cn/manual/thinkphp5/118006
+10、TP5微信支付详细流程 https://www.tongpankt.com/2447
+11、iconv函数转码使用   https://www.jb51.net/article/14530.htm
+12、PHP解决中文乱码     https://www.jb51.net/article/112507.htm
+13、TP框架官网          http://www.thinkphp.cn/document/index.html
+14、时间戳转换工具      https://tool.lu/timestamp/
+15、composer官网  	https://www.phpcomposer.com/
+16、sublime追踪函数安装 https://jingyan.baidu.com/article/da1091fb7d604b027849d682.html
+17、长风网测试服岗位审核后台管理			http://slbv2.cfnet.org.cn/adminlogin
+18、长风网正式服岗位审核后台管理 http://cfnet.org.cn/admin
+19、开元中国 https://www.oschina.net/
+20、博客园  https://www.cnblogs.com/
+21、php获取ip地址的方法  https://www.cnblogs.com/chenkg/p/4459412.html
+22、unix时间戳转化 http://tool.chinaz.com/Tools/unixtime.aspx
+23、PHP按符号截取字符串的指定部分 https://www.cnblogs.com/shaoguan/p/7336988.html
+24、下载保存文件保存到本地的两种实现方法 https://www.jb51.net/article/40485.htm
+25、 MySQL性能优化的最佳21条经验 http://www.jsdaima.com/blog/165.html
+26、V2程序员板块 https://v2mm.tech/categories
+27、ECharts图表  http://echarts.baidu.com/echarts2/doc/start.html
+28、 ECharts演示 http://echarts.baidu.com/examples/index.html 		 http://echarts.baidu.com/echarts2/doc/example.html
+29、Laravel 框架 https://www.golaravel.com/
+30、Laravel手册 https://www.golaravel.com/post/laravel-5-4-is-now-released/
+31、邮件发送  https://www.jb51.net/article/106988.htm
+32、php正则验证邮箱、手机号、姓名、身份证、特殊符号等  https://www.cnblogs.com/dreamysky/p/5920247.html
+33、判断用户的设备类型 https://www.cnblogs.com/dreamysky/p/5905971.html
+34、php解压zip文件  https://www.cnblogs.com/dreamysky/p/5905991.html
+35、Header实现文件下载    https://www.cnblogs.com/dreamysky/p/5905882.html
+36、后台实现js关闭本页面，父页面指定跳转或刷新 https://blog.csdn.net/qq_37796017/article/details/81068982
+37、tc PDF生成  https://tcpdf.org/examples/
+38、phpMyAdmin  http://www.wmchina.org.cn/
+39、禅道修改地址  http://bugs.logis.cn/my.html
+40、PDF文件生成方法  1：https://blog.csdn.net/qq_20353887/article/details/60574910
+    2：https://blog.csdn.net/mengke1124/article/details/43604889?utm_source=blogxgwz0
+    3: https://blog.csdn.net/sqzhao/article/details/48656217?utm_source=blogkpcl2
+    4: https://blog.csdn.net/qq_14873105/article/details/51394026#commentBox
+	
+
+
+
+
+
+
