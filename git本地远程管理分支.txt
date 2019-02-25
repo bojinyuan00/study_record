@@ -1,16 +1,16 @@
-1�������½���֧֮��Զ��������ͬ��֧
-	==��git push --set-upstream origin name    ʹ��Զ���½�һ����֧�������뱾����ͬ�����Զ�����
-	==��git pull origin name     ʹ��Զ�̳���һ����ͬ���Ƶķ�֧�����ѱ��ط�֧���͵�Զ�̣������߼���ʵ��û�й�����
+1、本地新建分支之后，远程暂无相同分支
+	==》git push --set-upstream origin name    使得远程新建一个分支，名称与本地相同，且自动关联
+	==》git pull origin name     使得远程出现一个相同名称的分支（即把本地分支推送到远程，但两者间其实并没有关联）
 	    ||
-	    ==��git branch --set-upstream-to=origin/name  ʹ������������ָ��Զ�̵�ĳ����֧�뵱ǰ�ı��ط�֧����
+	    ==》git branch --set-upstream-to=origin/name  使用这个命令，可以指定远程的某个分支与当前的本地分支关联
 
-2��git ɾ��Զ�̷�֧  git push origin --delete name        ||     git push origin :name
-     git ɾ�����ط�֧  git branch -d dev
+2、git 删除远程分支  git push origin --delete name        ||     git push origin :name
+     git 删除本地分支  git branch -d dev
 
-3����֪Զ�̷�֧����Ҫ�ڱ����½�һ�����ط�֧���������Զ�̷�֧����
-	==��$ git checkout --track origin/name\
+3、已知远程分支，需要在本地新建一个本地分支，并且与该远程分支关联
+	==》$ git checkout --track origin/name\
 
-4��git�ֿ��ʼ��  git init
-5��git�鿴��֧   ==��git branch ���鿴���ط�֧��
-	         ==��git branch -a (�鿴���غ�Զ�̵����з�֧)
-	         ==��git branch -vv���鿴������Զ�̷�֧�Ĺ�����ϵ��
+4、git仓库初始化  git init
+5、git查看分支   ==》git branch （查看本地分支）
+	         ==》git branch -a (查看本地和远程的所有分支)
+	         ==》git branch -vv（查看本地与远程分支的关联关系）呵呵
