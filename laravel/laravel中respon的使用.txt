@@ -1,0 +1,17 @@
+
+数组转json
+return response()->json($arr);
+
+重定向
+return redirect('someurl');
+
+携带数据
+return redirect('url')->with('message', '快闪数据');
+
+跳转到控制器方法
+return redirect()->action('StudentController@getInfo')->with('message', '快闪数据');
+
+return redirect()->route('别名');
+
+返回上一级
+return redirect()->back();
