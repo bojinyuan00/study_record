@@ -9,6 +9,7 @@
 
 3、已知远程分支，需要在本地新建一个本地分支，并且与该远程分支关联
 	==》$ git checkout --track origin/name
+	==》$ git checkout -t origin/name
 
 4、git仓库初始化  git init
 5、git查看分支   ==》git branch （查看本地分支）
