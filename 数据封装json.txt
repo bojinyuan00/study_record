@@ -1,0 +1,11 @@
+function echoJson($info, $status = true, $data = array()) {
+    $current_info = array(
+        'status' => (bool)$status,
+        'info' => $info
+    );
+    if (!empty($data)) {
+        $current_info['data'] = (array)$data;
+    } 
+    header('Content-type: application/json;charset=utf-8');
+    echo json_encode($current_info, JSON_UNESCAPED_UNICODE);
+}
