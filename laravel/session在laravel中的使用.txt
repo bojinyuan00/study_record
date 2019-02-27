@@ -1,0 +1,29 @@
+$request->session()->put('key1', 'value1');
+$request->session()->get('key1');
+
+
+辅助函数取值,有默认值
+$value = session('key', 'default');
+存值
+session(['key'=>'value']);
+
+
+Session::put('key3', 'value3');
+Session::put(['key4'=>'value4']);
+Session::get('key3', 'default');
+把sean放到student[]数组中
+Session::push('student', 'sean');
+
+取出并删除
+$value = Session::pull('key');
+
+取出所有的值
+$array = Session::all();
+
+$bool = Session::has('key1');
+
+清空所有
+Session::flush();
+
+闪存, 存入的值, 只能取一次
+Session::flash('key','value');
