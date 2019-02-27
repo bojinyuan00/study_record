@@ -1,10 +1,10 @@
 ﻿1、本地新建分支之后，远程暂无相同分支
-	==》git push --set-upstream origin name    使得远程新建一个分支，名称与本地相同，且自动关联
+	==》git push --set-upstream origin name    使得远程新建一个分支，名称与本地相同，且自动关联  （--set-upstream 的作用等同于 -u）
 	==》git pull origin name     使得远程出现一个相同名称的分支（即把本地分支推送到远程，但两者间其实并没有关联）
 	    ||
 	    ==》git branch --set-upstream-to=origin/name  使用这个命令，可以指定远程的某个分支与当前的本地分支关联
 
-2、git 删除远程分支  git push origin --delete name        ||     git push origin :name
+2、git 删除远程分支  git push origin --delete name        ||     git push origin :name ||  git push origin -d name
      git 删除本地分支  git branch -d dev
 
 3、已知远程分支，需要在本地新建一个本地分支，并且与该远程分支关联
@@ -15,3 +15,79 @@
 5、git查看分支   ==》git branch （查看本地分支）
 	         ==》git branch -a (查看本地和远程的所有分支)
 	         ==》git branch -vv（查看本地与远程分支的关联关系）
+
+6、初始化git ==>git init     
+7、git diff     查看修改的内容
+8、git reflog   查看命令历史
+
+9、git add -A      提交所有变化
+     git add -u       提交被修改(modified)和被删除(deleted)文件，不包括新文件(new)
+     git add .         提交新文件(new)和被修改(modified)文件, 不包括被删除(deleted)文件
+
+10、git rm -r --cached .    解除缓存,之后可以重新添加
+
+11、git reset HEAD file                        丢弃add到暂存区中的修改
+       git reset --hard c9f9b0a1e6c2       重置工作区到某一版本
+       git checkout -- file                        直接丢弃工作区的修改
+
+12、分支:
+	git branch dev                              创建分支
+	git checkout -b dev                         创建并切换
+	git branch                                  列出本地分支
+	git branch -r                               列出远程分支
+	git branch -a                               列出本地分支和远程分支
+	git branch -vv                              列出本地与远程的关系
+	git branch -d dev                           删除分支
+	git branch -D dev                           强行删除分支
+	git branch -m | -M old_branch new_branch    重命名分支
+
+13、git merge dev               把dev分支合并到当前分支
+       git merge --no-ff dev       合并后保留分支的提交历史
+       git merge --abort           放弃合并
+
+14、 git remote -v               查看远程库信息
+
+15、  git push origin dev         推送指定分支
+         git pull origin dev         拉取指定分支
+
+16、标签:
+	git tag                                     		查看所有标签
+	git tag <name>                             	 新建标签
+	git tag -a <tagname> -m "blablabla..."      指定标签信息
+	git tag -s <tagname> -m "blablabla..."      用PGP签名标签
+	git push origin <tagname>                   	推送一个本地标签
+	git push origin --tags                      	推送全部未推送过的本地标签
+	git tag -d comppppp                         	删除一个本地标签
+	git push origin --delete tag 0.01       	删除一个远程标签
+
+17、	git stash                       	暂存工作现场
+	git stash list                  	列表
+	git stash apply stash@{2}       	回到指定现场
+	git stash drop stash@{2}        	删除指定现场
+	git stash pop                   	回到最新的工作现场并删除
+
+18、关联==1
+	git remote add origin git@models.git                        关联远程仓库
+	git push -u origin dev                                      	推送并关联
+	git push origin dev                                         	推送不关联
+	git branch -u origin/master                                 	关联当前分支和远程dev分支
+	git checkout -b dev origin/dev                              	指定本地分支名并跟踪
+	git checkout -t origin/dev                                  	创建与远程分支名相同的分支并跟踪
+	git push origin -d dev                                      	删除远程分支
+	git pull --allow-unrelated-histories                        	允许合并不关联的提交
+
+
+19、git的全局配置
+	.gitconfig
+	git config --global core.fileMode false
+
+	git config --global alias.ck 'checkout'
+	git config --global alias.aa 'add -A'
+	git config --global alias.cm 'commit'
+	git config --global alias.bh 'branch'
+	git config --global alias.pa 'pull --all'
+
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+
+
