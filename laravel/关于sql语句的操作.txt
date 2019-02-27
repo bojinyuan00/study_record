@@ -1,0 +1,85 @@
+获取sql语句
+DB::enableQueryLog();
+dd(DB::getQueryLog());
+
+age自增3,并且更新name	(decrement:自减)  
+$num=DB::table('student')->where('id',12)->increment('age',3, ['name'=>'小野猫']);
+
+获取ID
+$id = DB::table('users')->insertGetId(
+    ['email' => 'john@example.com', 'votes' => 0]
+);
+
+where多个条件
+$students = DB::table('student')->whereRaw('id >= ? and age >= ?', [1001, 18])->get();
+$users = DB::table('users')->where([
+    ['status', '=', '1'],
+    ['subscribed', '<>', '1'],
+])->get();
+
+只查询name字段
+$names = DB:table('student')->pluck('name');
+
+结果为 id => name
+$names = DB:table('student')->lists('name', 'id');
+
+指定字段查找
+$students = DB::table('student')->select('id', 'name', 'age')->get();
+
+一次查询一千条 return false 时会停止查询
+DB::table('student')->chunk(1000, function($students)){
+	var_dump($students);
+	return false;
+}
+
+聚合函数
+$max = DB::table('student')->max('age');
+
+---------------ORM--------------------------
+倒序
+$students = Student::where('id', '>', '1001')->orderBy('age', 'desc')->first();
+
+Student::chunk(2, function($students)){
+	var_dump($students);
+	return false;
+}
+
+$num = Student::count();
+
+需要设置批量赋值
+$fillable
+$guarded
+Student::create(
+	['name'=>'imooc', 'age'=>18]
+);
+有就取出第一条, 没有就创建对象并插入数据库
+$student = Student::firstOrCreate(
+	['name'=>'imooc']
+);
+不会自动插入数据库, 需要再调用save()
+$student = Student::firstOrNew(
+	['name'=>'imooc']
+);
+$bool = $student->save();
+
+更新数据库
+$num = Student::where('id', '>' 1019)->update(
+	['age'=>41]
+);
+
+
+事物的两种写法
+DB::transaction(function () {
+    DB::table('users')->update(['votes' => 1]);
+    DB::table('posts')->delete();
+});
+第二种写法
+DB::beginTransaction();
+DB::commit();
+DB::rollBack();
+
+分页查询
+$security = Security::skip(($request->page - 1) * $request->page_size)->take($request->page_size)->get();
+
+模糊查询
+$security = Security::where('name', 'like', "%{$request->keyword}%")->get();

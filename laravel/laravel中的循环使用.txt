@@ -1,0 +1,56 @@
+@for ($i = 0; $i < 10; $i++)
+    目前的值为 {{ $i }}
+@endfor
+
+@foreach ($users as $user)
+    <p>此用户为 {{ $user->id }}</p>
+@endforeach
+
+@forelse ($users as $user)
+    <li>{{ $user->name }}</li>
+@empty
+    <p>没有用户</p>
+@endforelse
+
+@while (true)
+    <p>我永远都在跑循环。</p>
+@endwhile
+
+
+
+当使用循环时，你可能也需要一些结束循环或者跳出当前循环的命令：
+@foreach ($users as $user)
+    @if ($user->type == 1)
+        @continue
+    @endif
+
+    <li>{{ $user->name }}</li>
+
+    @if ($user->number == 5)
+        @break
+    @endif
+@endforeach
+
+
+
+你也可以使用命令声明包含条件的方式在一条语句中达到中断:
+@foreach ($users as $user)
+    @continue($user->type == 1)
+
+    <li>{{ $user->name }}</li>
+
+    @break($user->number == 5)
+@endforeach
+
+
+
+$loop 变量也包含了其它各种有用的属性：
+属性	描述
+$loop->index        当前循环所迭代的索引，起始为 0。
+$loop->iteration	当前迭代数，起始为 1。
+$loop->remaining	循环中迭代剩余的数量。
+$loop->count        被迭代项的总数量。
+$loop->first        当前迭代是否是循环中的首次迭代。
+$loop->last         当前迭代是否是循环中的最后一次迭代。
+$loop->depth        当前循环的嵌套深度。
+$loop->parent       当在嵌套的循环内时，可以访问到父循环中的 $loop 变量。
