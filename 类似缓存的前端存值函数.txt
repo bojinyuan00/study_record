@@ -1,0 +1,5 @@
+localStorage的存储,读取,删除
+window.localStorage.setItem('key',value)  ===》localStorage读取
+window.localStorage.getItem("key")	===》localStorage读取
+window.localStorage.removeItem('key')	===》localStorage删除
+window.localStorage.clear()		===》localStorage清空所有的key
