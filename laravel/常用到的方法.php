@@ -36,3 +36,119 @@ $data_moving_machine = MovingMachine::query()
 
 
 
+//删除数组的第一个元素并返回值
+array_shift($path_arr);
+
+
+
+//当使用关联模型查询时
+  $coll = $coll
+            ->with('engineering')
+            ->with('construction_type')
+            ->orderBy('id')
+            ->paginate($request->page_size ?? 10);
+        
+        list($data,$total) = ArrLib::listDataTotal($coll);
+        // dd($data);
+        //获取关联模型内想要获取的字段，并且命名
+        ArrLib::newBeeMethod($data,1,'engineering.title', 'engineering.eng_type_id', 'construction_type.name');
+    	
+    	///对数组内的某些字段进行转化重命名
+        ArrLib::renameColumn($data, 'engineering_title->engineeringTitle');
+
+        // 用于上面调用
+		public static function newBeeMethod(&$coll, $is_need_unset, ...$column_paths)
+		    {
+		        if (!is_array($coll)) {
+		            $coll = $coll->toArray();
+		        }
+		        if ($coll == []) {
+		            return;
+		        }
+		        if (isset($coll[0])) {
+		            //二维数组
+		            foreach ($coll as &$obj) {
+		                foreach ($column_paths as $path) {
+		                    self::newBeeAppend($path, $obj);
+		                }
+		            }
+		            if ($is_need_unset) {
+		                foreach ($coll as &$obj) {
+		                    foreach ($column_paths as $path) {
+		                        self::newBeeUnset($path, $obj);
+		                    }
+		                }
+		            }
+		        } else {
+		            //一维数组
+		            foreach ($column_paths as $path) {
+		                self::newBeeAppend($path, $coll);
+		            }
+		            if ($is_need_unset) {
+		                foreach ($column_paths as $path) {
+		                    self::newBeeUnset($path, $coll);
+		                }
+		            }
+		        }
+		    }
+
+		    //用于上面调用
+		    protected static function newBeeAppend($path, &$obj)
+			    {
+			        $path_arr = explode('.', $path);
+			        $obj[$path_arr[count($path_arr) - 2] . '_' . $path_arr[count($path_arr) - 1]] = self::dataGet($obj, $path_arr);
+			    }
+			//用于上面调用   
+			    protected static function newBeeUnset($path, &$obj)
+			    {
+			        $path_arr = explode('.', $path);
+			        unset($obj[$path_arr[0]]);
+			    }
+			//用于上面调用    
+			    public static function dataGet($obj, $path_arr)
+			    {
+			        $temp = $obj[$path_arr[0]];
+			        if (count($path_arr) == 1) {
+			            return $temp;
+			        } else {
+			            array_shift($path_arr);
+			            return self::dataGet($temp, $path_arr);
+			        }
+			    }
+
+
+
+			///用于重命名调用
+			 /**
+		     * @param $coll
+		     * @param mixed ...$from_to a->b
+		     */
+		    public static function renameColumn(&$coll, ...$from_to)
+		    {
+		        if ($coll == []) {
+		            return;
+		        }
+		        if (isset($coll[0])) {
+		            foreach ($coll as &$obj) {
+		                foreach ($from_to as $ft) {
+		                    self::rename1($ft, $obj);
+		                }
+		            }
+		        } else {
+		            foreach ($from_to as $ft) {
+		                self::rename1($ft, $coll);
+		            }
+		        }
+		    }
+		    
+		    protected static function rename1($ft, &$obj)
+		    {
+		        $arr = explode('->', $ft);
+		        $from = $arr[0];
+		        $to = $arr[1];
+		        $obj[$to] = $obj[$from];
+		        unset($obj[$from]);
+		    }
+
+
+
