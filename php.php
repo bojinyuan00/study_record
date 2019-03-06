@@ -141,3 +141,6 @@
 	G、书写高效率的SQL。比如 SELECT * FROM TABEL 改为 SELECT field_1, field_2, field_3 FROM TABLE。
 
 
+16、//删除数组的第一个元素并返回值
+	array_shift($path_arr);
+
