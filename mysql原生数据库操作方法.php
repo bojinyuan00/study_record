@@ -17,7 +17,7 @@
     }                                      ==>判断是否连接成功
 3、  mysqli_set_charset($link , 'utf8');   ==>设置字符集
 4、  mysqli_select_db($link , 'qzo4');      ==>选择数据库
-5、  $sql = “select * from user”;           ==>准备sql语句
+5、  $sql = "select * from user";           ==>准备sql语句
 6、  $res = mysqli_query($link , '$sql');   ==>发送sql语句
 7、  $result = mysqli_fetch_assoc($res);    ==>获取和处理结果集
        var_dump($result);
@@ -40,4 +40,7 @@ $res = mysqli_num_rows($obj);   ==>返回的是数据的条数
 Mysqli_affected_rows($link);==>返回 修改、删除、添加时受影响的行数
 mysqli_insert_id($link);==>返回当前插入数据的自增id值
 
+
+关于分页的代码实现可参考
+	php_record  ==>  php基础  ==>Php数据库.docx 文件内的具体分页逻辑
 
