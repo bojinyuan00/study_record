@@ -152,3 +152,83 @@ array_shift($path_arr);
 
 
 
+//控制器中连表查询，并且获取相应的字段值
+public function get_list(Request $request)
+    {
+        try {
+            $coll = AlarmRecord::query();
+            
+            if ($request->filled('project_id')) {
+                $coll->where('alarm_record.project_id', $request->project_id);
+            } elseif ($request->filled('bureau_id')) {
+                $coll->whereIn('alarm_record.project_id', ProjectHelper::pidsByBureauId($request->bureau_id));
+            } else {
+                $coll->where('alarm_record.project_id', $this->getPID());
+            }
+            if ($request->filled('from_time')) {
+                $coll->where('alarm_record.alarm_time', '>=', $request->from_time);
+            }
+            if ($request->filled('end_time')) {
+                $coll->where('alarm_record.alarm_time', '<=', $request->end_time);
+            }
+            if ($request->filled('train_id')) {
+                $coll->where('alarm_record.train_id', $request->train_id);
+            }
+            if ($request->filled('type')) {
+                $coll->where('alarm_record.type', $request->type);
+            }
+            
+            $coll = $coll
+                ->leftJoin('train', 'alarm_record.train_id', 'train.id')
+                ->leftJoin('bureau_user as user_train_leader', 'user_train_leader.id', 'train.train_leader_user_id')
+                ->leftJoin('bureau_user as user_driver', 'user_driver.id', 'train.driver_user_id')
+                ->leftJoin('track_line_sub', 'track_line_sub.id', 'alarm_record.track_line_sub_id')
+                ->leftJoin('track_line', 'track_line.id', 'track_line_sub.track_line_id')
+                ->orderBy('alarm_record.created_at', 'desc')
+                ->select(
+                    'alarm_record.*',
+                    'train.name as train_name',
+                    'user_train_leader.nickname as train_leader_nickname',
+                    'user_driver.nickname as user_driver_nickname',
+                    'track_line.name as line_nickname'
+                )
+                ->paginate($request->page_size ?? 10)
+                ->toArray();
+            
+            list($data, $total) = ArrLib::listDataTotal($coll);
+            
+            foreach ($data as &$datum) {
+                $datum['transType'] = AlarmRecord::transType($datum['type']);
+            }
+            
+            return getJson(0, null, $data, $total > 500 ? 500 : $total);
+        } catch (\Exception $e) {
+            return getJson(-100, $e->getMessage());
+        }
+    }
+
+
+
+
+
+
+// laravel采用自定义分页的方法查询
+     Model::offset(a)->limit(b)->get();
+     b=$page_size;==>每页多少条
+     a=($page-1)*$page_size;==>从多少条开始查询
+     Model::offset(a)->take(b)->get();
+
+     // 封装类似的也可以
+	public static function skipTake(&$query, $page, $page_size = 10)
+    {
+        $query->skip(($page - 1) * $page_size)
+            ->take($page_size);
+    }
+
+
+
+
+    
+
+
+
