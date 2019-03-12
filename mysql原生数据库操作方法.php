@@ -24,3 +24,20 @@
 8、  Mysqli_close($link);                   ==>关闭数据库
 
 
+对于mysql的结果集获取这里，可以采用
+	While($rows = mysqli_fetch_assoc($obj)){
+		var_dump($rows);
+	}
+
+对于mysql的结果集获取这里，可以采用
+While($rows = mysqli_fetch_assoc($obj)){
+Var_dump($rows);
+}
+$res = mysqli_fetch_assoc($obj);   ==>返回的是关联数组
+$res = mysqli_fetch_row($obj);    ==>返回的是索引数组
+$res = mysqli_fetch_array($obj);   ==>返回的是索引关联数组
+$res = mysqli_num_rows($obj);   ==>返回的是数据的条数
+Mysqli_affected_rows($link);==>返回 修改、删除、添加时受影响的行数
+mysqli_insert_id($link);==>返回当前插入数据的自增id值
+
+
