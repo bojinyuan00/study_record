@@ -44,3 +44,6 @@ mysqli_insert_id($link);==>返回当前插入数据的自增id值
 关于分页的代码实现可参考
 	php_record  ==>  php基础  ==>Php数据库.docx 文件内的具体分页逻辑
 
+
+
+

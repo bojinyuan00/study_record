@@ -227,6 +227,46 @@ public function get_list(Request $request)
 
 
 
+//laravel中 查询时 使用 or语句
+if ($request->filled('train_status')) {
+                if ($request->train_status == 0) {
+                    //没有返回车次的, 出发到达时间为空
+                    //有返回的, 返回到达时间为空
+                    $sql->whereRaw("((back_num='' and actual_train_end_time is null) or
+                        (back_num!='' and actual_train_return_stop_time is null))");
+                } else {
+                    //没有返回车次的, 出发到达时间不为空
+                    //有返回的, 返回到达时间不为空
+                    $sql->whereRaw("((back_num='' and actual_train_end_time is not null) or
+                        (back_num!='' and actual_train_return_stop_time is not null))");
+                }
+            }
+//形参一一对应
+            ->whereRaw('(go_benwu_train_id = ? or back_benwu_train_id = ?)', [$request->train_id, $request->train_id])
+                ->whereRaw("(
+                    plan_train_stop_time >= ?
+                    or actual_train_end_time is null
+                    or (back_num != '' and (plan_train_return_stop_time >= ? or actual_train_return_stop_time is null))
+                )", [$start_time, $start_time])
+
+
+// 联合查询 以及获取相应的值
+->leftJoin('track_line as go_track_line', 'go_track_line.id', 'construction_plan_4.go_track_line_id')
+                ->leftJoin('track_line as back_track_line', 'back_track_line.id', 'construction_plan_4.back_track_line_id')
+                ->leftJoin('track_line', 'track_line.id', 'construction_plan_4.track_line_id')
+                ->leftJoin('construction_progress', 'construction_progress.id', 'construction_plan_4.work_id')
+                ->select(
+                    'construction_plan_4.*',
+                    'construction_plan_workitem.name as workitem_name',
+                    'construction_plan_worksequence.name as worksequence_name'
+                )
+                ->orderByDesc('actual_end_time')
+                ->paginate($request->page_size ?? 10)
+                ->toArray();
+
+//
+
+
 
     
 
