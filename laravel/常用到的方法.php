@@ -264,9 +264,62 @@ if ($request->filled('train_status')) {
                 ->paginate($request->page_size ?? 10)
                 ->toArray();
 
-//
 
+//使用关联模型查询时，当出现1对多时需要限定查询的字段  增快查询数据
+    public function getWorkitem(Request $request)
+    {
+        $project_id = api_pid($request);
+        $workitems = ConstructionPlanWorkitem::query()
+            ->where('project_id', $project_id)
+            ->with(['worksequence' => function($query) {
+                return $query->select('id', 'name', 'construction_plan_workitem_id');
+            }])
+            ->select('id', 'name')
+            ->get();
+        
+        foreach ($workitems as $workitem) {
+            foreach ($workitem['worksequence'] as $item) {
+                unset($item['construction_plan_workitem_id']);
+            }
+        }
+        
+        return getJson(0, null, $workitems, count($workitems));
+    }
 
+//with 关联模型内继续使用连表查询
+//获取施工计划列表
+    public function get_construction_progresses(Request $request)
+    {
+        try {
+            //获取施工进度的类型
+            $eid = api_eid($request);
+            $pid = api_pid($request);
+            
+            $coll = ConstructionProgress::query();
+            if ($eid) {
+                $coll->whereIn('project_id', ProjectHelper::pidsByEid($eid));
+            } else {
+                $coll->where('project_id', $pid);
+            }
+            
+            $coll = $coll
+                ->with(['son' => function($query) {
+                    return $query->leftJoin('track_line', 'track_line.id', 'construction_progress_son.track_line_id')
+                        ->select(
+                            'construction_progress_son.id',
+                            'construction_progress_son.construction_progress_id',
+                            'construction_progress_son.track_line_id',
+                            'track_line.name as line_name'
+                        );
+                }])
+                ->select('id', 'name', 'count_type', 'unit')
+                ->get();
+            
+            return getJson(0, null, $coll, count($coll));
+        } catch (\Exception $e) {
+            return getJson(-100, $e->getMessage());
+        }
+    }
 
     
 
