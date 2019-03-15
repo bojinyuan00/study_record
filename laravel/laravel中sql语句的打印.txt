@@ -1,0 +1,6 @@
+//开启
+DB::connection()->enableQueryLog();
+//获取
+$log = DB::getQueryLog();
+//打印
+dd($log);

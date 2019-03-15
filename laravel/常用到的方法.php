@@ -286,6 +286,7 @@ if ($request->filled('train_status')) {
         return getJson(0, null, $workitems, count($workitems));
     }
 
+
     $data_project= Project::query()
                 ->whereIn('id', $project_ids)
                 ->select('id','title','video_account','video_account_password')
@@ -294,6 +295,21 @@ if ($request->filled('train_status')) {
                 }])
                 ->get()
                 ->toArray();
+
+    //如果上述方法需要增加其它条件参数==》可以使用
+     $data_project = Project::query()
+        ->whereIn('id', $project_ids)
+        ->select('id', 'title', 'video_account', 'video_account_password')
+        ->with(['video_device' => function($query) use ($request) {
+            if ($request->filled('cloud_type')) {
+                $query->whereIn('cloud_type', $request['cloud_type']);
+            }
+                $query->select('id', 'name', 'device_num as num', 'type', 'is_online', 'project_id');
+            }])
+            ->get()
+            ->toArray();
+    
+
 
 //with 关联模型内继续使用连表查询
 //获取施工计划列表
