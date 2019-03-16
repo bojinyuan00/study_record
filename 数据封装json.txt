@@ -1,3 +1,4 @@
+1、模式
 function echoJson($info, $status = true, $data = array()) {
     $current_info = array(
         'status' => (bool)$status,
@@ -9,3 +10,18 @@ function echoJson($info, $status = true, $data = array()) {
     header('Content-type: application/json;charset=utf-8');
     echo json_encode($current_info, JSON_UNESCAPED_UNICODE);
 }
+
+
+2、模式
+protected function getJson($status, $msg = null, $data = null, $count = null)
+    {
+        $array['status'] = $status;
+        if ($msg)
+            $array['msg'] = $msg;
+        if ($count || $count === 0)
+            $array['count'] = $count;
+        if ($data)
+            $array['data'] = $data;
+        return response(json_encode($array, JSON_UNESCAPED_UNICODE + JSON_UNESCAPED_SLASHES))
+            ->header('Content-type', 'application/json;charset=utf-8');
+    }
