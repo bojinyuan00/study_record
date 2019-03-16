@@ -264,6 +264,25 @@ if ($request->filled('train_status')) {
                 ->paginate($request->page_size ?? 10)
                 ->toArray();
 
+//或者当使用left查询时可以再其内进行闭包
+$mainlines = ConstructionProgressSon::query()
+                    ->leftJoin('track_line', 'track_line.id', 'construction_progress_son.track_line_id')
+                    ->leftJoin('track_line_son', function($query) use ($pid) {
+                        $query->on('track_line_son.track_line_id', 'track_line.id')
+                            ->where('track_line_son.project_id', $pid);
+                    })
+                    ->where('construction_progress_id', $cp['id'])
+                    ->select(
+                        'track_line.id',
+                        'track_line.name',
+                        'track_line_son.is_large_mileage',
+                        'construction_progress_son.construction_progress_id',
+                        'construction_progress_son.plan_start_pos',
+                        'construction_progress_son.plan_end_pos'
+                    )
+                    ->get()
+                    ->toArray();
+
 
 //使用关联模型查询时，当出现1对多时需要限定查询的字段  增快查询数据
     public function getWorkitem(Request $request)
