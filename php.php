@@ -144,3 +144,25 @@
 16、//删除数组的第一个元素并返回值
 	array_shift($path_arr);
 
+
+17、在laravel中两种写法
+	//判断线别是否存在
+        if ($request->filled('track_line_id')) {
+            $TrackLineSubIds = TrackLineSub::query()
+                ->where('track_line_id', $request->track_line_id)
+                ->pluck('id')->toArray();//获取该线别下的轨道线id数组
+            $where_in = implode(",", $TrackLineSubIds);
+            $page->whereRaw("(from_track_line_sub_id in ($where_in)) or (end_track_line_sub_id in ($where_in))");
+        }
+
+
+
+	if ($request->filled('track_line_id')) {
+            $TrackLineSubIds = TrackLineSub::query()
+                ->where('track_line_id', $request->track_line_id)
+                ->pluck('id')->toArray();//获取该线别下的轨道线id数组
+          $page->where(function($query) use($TrackLineSubIds){
+                $query->whereIn('from_track_line_sub_id', $TrackLineSubIds)
+                    ->orwhereIn('end_track_line_sub_id', $TrackLineSubIds);
+            });
+        }
