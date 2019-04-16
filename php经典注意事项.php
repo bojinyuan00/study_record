@@ -185,4 +185,59 @@
 	(3) 自动提交 
 	若把AUTOCOMMIT设置为ON，则在插入、修改、删除语句执行后， 
 	系统将自动进行提交，这就是自动提交。其格式为： 
-	SQL>SET AUTOCOMMIT ON； 
+	SQL>SET AUTOCOMMIT ON；
+
+
+8、  session跨域共享解决方案
+	方式一：
+	打开 php.ini 文件，修改下面两个参数：
+	session.save_handler = memcache
+	session.save_path = "tcp://Mem服务器1:端口号,tcp://Mem服务器2:端口号..." 
+
+	方式二：
+	在 php 文件中使用 ini_set 函数，进行配置，此方法会解决共享服务器的 php 的配置问题
+	ini_set("session.save_handler", "memcache");
+	ini_set("session.save_path", "tcp://Mem服务器1:端口号,tcp://Mem服务器2:端口号...");
+
+
+9、 PHP连接MySQL数据库用到的三种API
+	1、PHP的MySQL扩展
+	2、PHP的mysqli扩展
+	3、PHP数据对象(PDO)	
+
+
+10、 php中的长连接和短连接
+	长连接==》服务器主动推动消息   一般用于静态网页
+	短连接==》请求连接再获取		一般用于动态网页
+
+
+11、 单例模式
+	实际项目中像数据库查询，日志输出，全局回调，统一校验等模块。这些模块功能单一，但需要多次访问，如果能够全局唯一，多次复用会大大提升性能。这也就是单例存在的必要性。
+	好处 :减少频繁创建，节省了cpu。
+		：静态对象公用，节省了内存。
+		：功能解耦，代码已维护
+	写法：	私有静态属性，又来储存生成的唯一对象
+			私有构造函数
+			私有克隆函数，防止克隆——clone
+			公共静态方法，用来访问静态属性储存的对象，如果没有对象，则生成此单例
+	代码：  
+<?php
+	class SingleInstance{
+        private function _construct(){
+            
+        }
+       private static $instance;
+       
+       private function _clone(){ 
+       }
+       public static function getInstance(){
+           if(!self::$instance instanceof SingleInstance){
+               self::$instance=new SingleInstance();
+           }
+           return self ::$instance;
+       }
+    }
+?>
+
+
+
