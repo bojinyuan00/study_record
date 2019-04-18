@@ -366,6 +366,55 @@ $mainlines = ConstructionProgressSon::query()
     }
 
     
+//在laravel中两种写法
+    //判断线别是否存在
+        if ($request->filled('track_line_id')) {
+            $TrackLineSubIds = TrackLineSub::query()
+                ->where('track_line_id', $request->track_line_id)
+                ->pluck('id')->toArray();//获取该线别下的轨道线id数组
+            $where_in = implode(",", $TrackLineSubIds);
+            $page->whereRaw("(from_track_line_sub_id in ($where_in)) or (end_track_line_sub_id in ($where_in))");
+        }
 
 
 
+    if ($request->filled('track_line_id')) {
+            $TrackLineSubIds = TrackLineSub::query()
+                ->where('track_line_id', $request->track_line_id)
+                ->pluck('id')->toArray();//获取该线别下的轨道线id数组
+          $page->where(function($query) use($TrackLineSubIds){
+                $query->whereIn('from_track_line_sub_id', $TrackLineSubIds)
+                    ->orwhereIn('end_track_line_sub_id', $TrackLineSubIds);
+            });
+        }
+
+
+//左连接查询使用闭包增加限制条件
+ $videoDevices = VideoDevice::query()
+                    ->whereIn('video_device.id', $videoDeviceGroupRelations->pluck('video_device_id'))
+                    ->leftJoin('video_device_group_relation', function($join) use ($videoDeviceGroup) {
+                        $join->on('video_device_group_relation.video_device_id', 'video_device.id')
+                            ->where('video_device_group_relation.video_device_group_id', $videoDeviceGroup->id);
+                    })
+                    ->orderBy('video_device_group_relation.order')
+                    ->select('video_device.id', 'video_device.name',
+                        'video_device.device_num as num', 'video_device.type', 'video_device.is_online',
+                        'cloud_type', 'train_id', 'ip')
+                    ->get();
+
+
+
+//模型关联时，限制模型内的查询字段
+try {
+            $coll = Train::query()
+                ->where('project_id', api_pid($request))
+                ->with(['video_device' => function($query) {
+                    $query->select('id', 'name', 'device_num', 'type', 'is_online', 'cloud_type', 'train_id', 'ip');
+                }])
+                ->select('id', 'name')
+                ->get();
+            
+            return getJson(0, null, $coll, count($coll));
+        } catch (\Exception $e) {
+            return getJson(-100, $e->getMessage());
+        }
