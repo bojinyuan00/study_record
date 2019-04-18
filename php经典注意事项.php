@@ -1,3 +1,4 @@
+<?php
 1、  数据表类型有哪些
        MyISAM、InnoDB、HEAP、BOB,ARCHIVE,CSV等
        MyISAM：成熟、稳定、易于管理，快速读取。一些功能不支持（事务等），表级锁。
@@ -221,7 +222,7 @@
 			私有克隆函数，防止克隆——clone
 			公共静态方法，用来访问静态属性储存的对象，如果没有对象，则生成此单例
 	代码：  
-<?php
+
 	class SingleInstance{
         private function _construct(){
             
@@ -237,7 +238,7 @@
            return self ::$instance;
        }
     }
-?>
+
 
 
 
