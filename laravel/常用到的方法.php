@@ -418,3 +418,14 @@ try {
         } catch (\Exception $e) {
             return getJson(-100, $e->getMessage());
         }
+
+
+//查询时  使用闭包增减筛选条件
+DB::table('users as u')
+->select('u.user_id','c.class')
+->leftJoin('class as c', function($join)
+{
+    $join->on('c.user_id', '=', 'u.user_id')
+    ->on('c.status', '=', '2');
+})
+->get();
