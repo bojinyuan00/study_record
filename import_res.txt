@@ -1,44 +1,36 @@
-1¡¢°Ù¶ÈÒ»ÏÂ£¬Äã¾ÍÖªµÀ   https://www.baidu.com/?tn=94112622_hao_pg
-2¡¢logisµÄOA·ÃÎÊÁ´½Ó    http://oa.logis.cn:8082/login.php
-3¡¢³¤·çÍø²âÊÔÍøÖ·       http://slbv2.cfnet.org.cn/
-4¡¢³¤·çÍøÕıÊ½ÍøÖ·       http://cfnet.org.cn/
-5¡¢±¾µØÓòÃû·ÃÎÊÍøÖ·     http://localhost/sch.cfnet.org.cn/public/index.php/abccom/Abc/user
-6¡¢²âÊÔ·ş·ÃÎÊÍøÖ·       http://base.cfnet.org.cn/index.php/
-7¡¢ÓĞµÀ·­Òë-ÔÚÏß        http://fanyi.youdao.com/
-8¡¢PHPÑ§Ï°×ÊÔ´ÍøÖ·      http://www.jsdaima.com/
-9¡¢TP5ÍêÈ«¿ª·¢ÊÖ²á      https://www.kancloud.cn/manual/thinkphp5/118006
-10¡¢TP5Î¢ĞÅÖ§¸¶ÏêÏ¸Á÷³Ì https://www.tongpankt.com/2447
-11¡¢iconvº¯Êı×ªÂëÊ¹ÓÃ   https://www.jb51.net/article/14530.htm
-12¡¢PHP½â¾öÖĞÎÄÂÒÂë     https://www.jb51.net/article/112507.htm
-13¡¢TP¿ò¼Ü¹ÙÍø          http://www.thinkphp.cn/document/index.html
-14¡¢Ê±¼ä´Á×ª»»¹¤¾ß      https://tool.lu/timestamp/
-15¡¢composer¹ÙÍø  	https://www.phpcomposer.com/
-16¡¢sublime×·×Ùº¯Êı°²×° https://jingyan.baidu.com/article/da1091fb7d604b027849d682.html
-17¡¢³¤·çÍø²âÊÔ·ş¸ÚÎ»ÉóºËºóÌ¨¹ÜÀí			http://slbv2.cfnet.org.cn/adminlogin
-18¡¢³¤·çÍøÕıÊ½·ş¸ÚÎ»ÉóºËºóÌ¨¹ÜÀí http://cfnet.org.cn/admin
-19¡¢¿ªÔªÖĞ¹ú https://www.oschina.net/
-20¡¢²©¿ÍÔ°  https://www.cnblogs.com/
-21¡¢php»ñÈ¡ipµØÖ·µÄ·½·¨  https://www.cnblogs.com/chenkg/p/4459412.html
-22¡¢unixÊ±¼ä´Á×ª»¯ http://tool.chinaz.com/Tools/unixtime.aspx
-23¡¢PHP°´·ûºÅ½ØÈ¡×Ö·û´®µÄÖ¸¶¨²¿·Ö https://www.cnblogs.com/shaoguan/p/7336988.html
-24¡¢ÏÂÔØ±£´æÎÄ¼ş±£´æµ½±¾µØµÄÁ½ÖÖÊµÏÖ·½·¨ https://www.jb51.net/article/40485.htm
-25¡¢ MySQLĞÔÄÜÓÅ»¯µÄ×î¼Ñ21Ìõ¾­Ñé http://www.jsdaima.com/blog/165.html
-26¡¢V2³ÌĞòÔ±°å¿é https://v2mm.tech/categories
-27¡¢EChartsÍ¼±í  http://echarts.baidu.com/echarts2/doc/start.html
-28¡¢ EChartsÑİÊ¾ http://echarts.baidu.com/examples/index.html 		 http://echarts.baidu.com/echarts2/doc/example.html
-29¡¢Laravel ¿ò¼Ü https://www.golaravel.com/
-30¡¢LaravelÊÖ²á https://www.golaravel.com/post/laravel-5-4-is-now-released/
-31¡¢ÓÊ¼ş·¢ËÍ  https://www.jb51.net/article/106988.htm
-32¡¢phpÕıÔòÑéÖ¤ÓÊÏä¡¢ÊÖ»úºÅ¡¢ĞÕÃû¡¢Éí·İÖ¤¡¢ÌØÊâ·ûºÅµÈ  https://www.cnblogs.com/dreamysky/p/5920247.html
-33¡¢ÅĞ¶ÏÓÃ»§µÄÉè±¸ÀàĞÍ https://www.cnblogs.com/dreamysky/p/5905971.html
-34¡¢php½âÑ¹zipÎÄ¼ş  https://www.cnblogs.com/dreamysky/p/5905991.html
-35¡¢HeaderÊµÏÖÎÄ¼şÏÂÔØ    https://www.cnblogs.com/dreamysky/p/5905882.html
-36¡¢ºóÌ¨ÊµÏÖjs¹Ø±Õ±¾Ò³Ãæ£¬¸¸Ò³ÃæÖ¸¶¨Ìø×ª»òË¢ĞÂ https://blog.csdn.net/qq_37796017/article/details/81068982
-37¡¢tc PDFÉú³É  https://tcpdf.org/examples/
-38¡¢phpMyAdmin  http://www.wmchina.org.cn/
-39¡¢ìøµÀĞŞ¸ÄµØÖ·  http://bugs.logis.cn/my.html
-40¡¢PDFÎÄ¼şÉú³É·½·¨  1£ºhttps://blog.csdn.net/qq_20353887/article/details/60574910
-    2£ºhttps://blog.csdn.net/mengke1124/article/details/43604889?utm_source=blogxgwz0
+1ã€ç™¾åº¦ä¸€ä¸‹ï¼Œä½ å°±çŸ¥é“   https://www.baidu.com/?tn=94112622_hao_pg
+7ã€æœ‰é“ç¿»è¯‘-åœ¨çº¿        http://fanyi.youdao.com/
+8ã€PHPå­¦ä¹ èµ„æºç½‘å€      http://www.jsdaima.com/
+9ã€TP5å®Œå…¨å¼€å‘æ‰‹å†Œ      https://www.kancloud.cn/manual/thinkphp5/118006
+10ã€TP5å¾®ä¿¡æ”¯ä»˜è¯¦ç»†æµç¨‹ https://www.tongpankt.com/2447
+11ã€iconvå‡½æ•°è½¬ç ä½¿ç”¨   https://www.jb51.net/article/14530.htm
+12ã€PHPè§£å†³ä¸­æ–‡ä¹±ç      https://www.jb51.net/article/112507.htm
+13ã€TPæ¡†æ¶å®˜ç½‘          http://www.thinkphp.cn/document/index.html
+14ã€æ—¶é—´æˆ³è½¬æ¢å·¥å…·      https://tool.lu/timestamp/
+15ã€composerå®˜ç½‘  	https://www.phpcomposer.com/
+16ã€sublimeè¿½è¸ªå‡½æ•°å®‰è£… https://jingyan.baidu.com/article/da1091fb7d604b027849d682.html
+19ã€å¼€å…ƒä¸­å›½ https://www.oschina.net/
+20ã€åšå®¢å›­  https://www.cnblogs.com/
+21ã€phpè·å–ipåœ°å€çš„æ–¹æ³•  https://www.cnblogs.com/chenkg/p/4459412.html
+22ã€unixæ—¶é—´æˆ³è½¬åŒ– http://tool.chinaz.com/Tools/unixtime.aspx
+23ã€PHPæŒ‰ç¬¦å·æˆªå–å­—ç¬¦ä¸²çš„æŒ‡å®šéƒ¨åˆ† https://www.cnblogs.com/shaoguan/p/7336988.html
+24ã€ä¸‹è½½ä¿å­˜æ–‡ä»¶ä¿å­˜åˆ°æœ¬åœ°çš„ä¸¤ç§å®ç°æ–¹æ³• https://www.jb51.net/article/40485.htm
+25ã€ MySQLæ€§èƒ½ä¼˜åŒ–çš„æœ€ä½³21æ¡ç»éªŒ http://www.jsdaima.com/blog/165.html
+26ã€V2ç¨‹åºå‘˜æ¿å— https://v2mm.tech/categories
+27ã€EChartså›¾è¡¨  http://echarts.baidu.com/echarts2/doc/start.html
+28ã€ EChartsæ¼”ç¤º http://echarts.baidu.com/examples/index.html 		 http://echarts.baidu.com/echarts2/doc/example.html
+29ã€Laravel æ¡†æ¶ https://www.golaravel.com/
+30ã€Laravelæ‰‹å†Œ https://www.golaravel.com/post/laravel-5-4-is-now-released/
+31ã€é‚®ä»¶å‘é€  https://www.jb51.net/article/106988.htm
+32ã€phpæ­£åˆ™éªŒè¯é‚®ç®±ã€æ‰‹æœºå·ã€å§“åã€èº«ä»½è¯ã€ç‰¹æ®Šç¬¦å·ç­‰  https://www.cnblogs.com/dreamysky/p/5920247.html
+33ã€åˆ¤æ–­ç”¨æˆ·çš„è®¾å¤‡ç±»å‹ https://www.cnblogs.com/dreamysky/p/5905971.html
+34ã€phpè§£å‹zipæ–‡ä»¶  https://www.cnblogs.com/dreamysky/p/5905991.html
+35ã€Headerå®ç°æ–‡ä»¶ä¸‹è½½  
+36ã€åå°å®ç°jså…³é—­æœ¬é¡µé¢ï¼Œçˆ¶é¡µé¢æŒ‡å®šè·³è½¬æˆ–åˆ·æ–° 
+37ã€tc PDFç”Ÿæˆ  https://tcpdf.org/examples/
+39ã€ç¦…é“ä¿®æ”¹åœ°å€  http://bugs.logis.cn/my.html
+40ã€PDFæ–‡ä»¶ç”Ÿæˆæ–¹æ³•  1ï¼šhttps://blog.csdn.net/qq_20353887/article/details/60574910
+    2ï¼šhttps://blog.csdn.net/mengke1124/article/details/43604889?utm_source=blogxgwz0
     3: https://blog.csdn.net/sqzhao/article/details/48656217?utm_source=blogkpcl2
     4: https://blog.csdn.net/qq_14873105/article/details/51394026#commentBox
 
