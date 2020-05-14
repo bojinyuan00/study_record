@@ -25,10 +25,7 @@
 32、php正则验证邮箱、手机号、姓名、身份证、特殊符号等  https://www.cnblogs.com/dreamysky/p/5920247.html
 33、判断用户的设备类型 https://www.cnblogs.com/dreamysky/p/5905971.html
 34、php解压zip文件  https://www.cnblogs.com/dreamysky/p/5905991.html
-35、Header实现文件下载  
-36、后台实现js关闭本页面，父页面指定跳转或刷新 
 37、tc PDF生成  https://tcpdf.org/examples/
-39、禅道修改地址  http://bugs.logis.cn/my.html
 40、PDF文件生成方法  1：https://blog.csdn.net/qq_20353887/article/details/60574910
     2：https://blog.csdn.net/mengke1124/article/details/43604889?utm_source=blogxgwz0
     3: https://blog.csdn.net/sqzhao/article/details/48656217?utm_source=blogkpcl2
