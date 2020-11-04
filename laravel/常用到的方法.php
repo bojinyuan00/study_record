@@ -429,3 +429,20 @@ DB::table('users as u')
     ->on('c.status', '=', '2');
 })
 ->get();
+
+
+查询数据的自定义分页
+//联合查询
+            $pageResult = $pageResult
+                ->union($page);
+
+            //获取总数
+            $count = $pageResult->get()->toArray();
+            $count = count($count);
+
+            //根据分页获取数据
+            $pageResultNew = $pageResult->orderByDesc('send_time')
+                ->offset($request->page ?($request->page)-1 : 0)
+                ->limit($request->page_size ?? 20)
+                ->get()
+                ->toArray();
